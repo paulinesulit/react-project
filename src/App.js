@@ -12,7 +12,7 @@
 // 9. Add an icon that flips back to the symbol when user clicks it
 
 import { useState, useEffect } from "react";
-import axios from "axios";
+import EachSign from "./components/EachSign.js";
 import "./App.css";
 
 function App() {
@@ -30,27 +30,50 @@ function App() {
     "Aquarius",
     "Pisces",
   ]);
-  const [horoscope, setHoroscope] = useState("");
+  const [horoscope, setHoroscope] = useState([]);
+  // const [showHoroscope, setShowHoroscope] = useState(false);
 
   useEffect(() => {
-    const individualSign = sign.map((eachSign) => {
+    sign.forEach((eachSign) => {
+      // setSign(eachSign);
       const URL = `https://aztro.sameerkumar.website/?sign=${eachSign}&day=today`;
       fetch(URL, {
         method: "POST",
       })
         .then((response) => response.json())
         .then((json) => {
-          console.log(json.description);
-          setHoroscope(json.description);
+          // console.log(json);
+          setHoroscope(json);
+          // setSign(eachSign);
+          // console.log([json]);
+          // json - each object
+          // setHoroscope(json.description);
+          // console.log(Object.entries(json));
         });
     });
   }, []);
 
+  // console.log(horoscope.description);
+  // => objects of each sign
+
   return (
     <div>
       <h1>🌙 DAILY HOROSCOPE 💫</h1>
+      {sign.map((horoscopeSign, index) => {
+        // for (let item in horoscope) {
+        //   console.log(horoscope.description);
+        // }
+        return (
+          <EachSign
+            key={index}
+            signName={horoscopeSign}
+            dailyHoroscope={setHoroscope.description}
+          />
+        );
+      })}
     </div>
   );
 }
 
 export default App;
+
