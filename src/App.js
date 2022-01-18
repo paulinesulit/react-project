@@ -5,25 +5,26 @@ import "./App.css";
 
 function App() {
 
+  const [horoscope, setHoroscope] = useState([]);
+
   useEffect(() => {
 
-      const url = "https://aztro.sameerkumar.website";
-      const sign = [
-        "aries",
-        "taurus",
-        "gemini",
-        "cancer",
-        "leo",
-        "virgo",
-        "libra",
-        "scorpio",
-        "sagittarius",
-        "capricorn",
-        "aquarius",
-        "pisces",
-      ];
-    const [horoscope, setHoroscope] = useState([]);
-
+    const url = "https://aztro.sameerkumar.website";
+    const sign = [
+      "aries",
+      "taurus",
+      "gemini",
+      "cancer",
+      "leo",
+      "virgo",
+      "libra",
+      "scorpio",
+      "sagittarius",
+      "capricorn",
+      "aquarius",
+      "pisces",
+    ];
+    
     sign.map((eachSign) => {
       axios({
         url: `${url}`,
