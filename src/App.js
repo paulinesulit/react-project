@@ -4,24 +4,26 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
-  const url = "https://aztro.sameerkumar.website";
-  const sign = [
-    "aries",
-    "taurus",
-    "gemini",
-    "cancer",
-    "leo",
-    "virgo",
-    "libra",
-    "scorpio",
-    "sagittarius",
-    "capricorn",
-    "aquarius",
-    "pisces",
-  ];
-  const [horoscope, setHoroscope] = useState([]);
 
   useEffect(() => {
+
+      const url = "https://aztro.sameerkumar.website";
+      const sign = [
+        "aries",
+        "taurus",
+        "gemini",
+        "cancer",
+        "leo",
+        "virgo",
+        "libra",
+        "scorpio",
+        "sagittarius",
+        "capricorn",
+        "aquarius",
+        "pisces",
+      ];
+    const [horoscope, setHoroscope] = useState([]);
+
     sign.map((eachSign) => {
       axios({
         url: `${url}`,
