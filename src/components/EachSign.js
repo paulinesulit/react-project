@@ -7,12 +7,12 @@ function EachSign(props) {
     setShowHoroscope(!showHoroscope);
   };
   return (
-    <div>
+    <div className="horoscopeContainer">
       <h2>{props.signName}</h2>
       <button onClick={deferrer}>
         {showHoroscope ? "< Back" : "Your horoscope for the day!"}
       </button>
-      <p>{props.dailyHoroscope}</p>
+      {showHoroscope ? <p>{props.dailyHoroscope}</p> : null}
     </div>
   );
 }
