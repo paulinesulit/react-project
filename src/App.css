@@ -84,7 +84,7 @@ button {
 }
 
 button:hover {
-  background-color: black;
+  background: rgb(75,0,130);
 }
 
 /* containers */
@@ -94,7 +94,6 @@ main {
   flex-wrap: wrap;
   margin: 0 20px;
   justify-content: center;
-  align-items: center;
 }
 
 .horoscopeContainer {
@@ -121,9 +120,30 @@ main {
 footer {
   background-color: rgb(75,0,130,.7);
   padding: 15px;
+  margin-top: 20px;
 }
 
 footer p, footer a {
   color: rgb(230, 230, 250);
   font-size: 0.7rem;
 }
+
+/* media queries */
+@media (max-width: 1240px) {
+  .horoscopeContainer {
+    width: calc(100% / 3 - 40px);
+  }
+}
+
+@media (max-width: 1020px) {
+  .horoscopeContainer {
+    width: calc(100% / 2 - 40px);
+  }
+}
+
+@media (max-width: 670px) {
+  .horoscopeContainer {
+    width: calc(100% - 40px);
+  }
+}
+

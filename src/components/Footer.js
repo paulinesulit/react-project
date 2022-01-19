@@ -16,3 +16,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// <a href="https://www.freepik.com/vectors/hand-drawn">Hand drawn vector created by pikisuperstar - www.freepik.com</a>
+// <a href='https://www.freepik.com/vectors/gold'>Gold vector created by rawpixel.com - www.freepik.com</a>
