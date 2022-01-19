@@ -11,7 +11,6 @@ function App() {
   const url = "https://aztro.sameerkumar.website";
   const [horoscope, setHoroscope] = useState([]);
 
-
   useEffect(() => {
     const sign = [
       "aries",
@@ -28,6 +27,8 @@ function App() {
       "pisces",
     ];
 
+    const horoscopeData = [];
+
     sign.forEach((eachSign) => {
       axios({
         url: `${url}`,
@@ -39,33 +40,40 @@ function App() {
       })
         .then((response) => {
           const currentHoroscope = { sign: eachSign, data: response.data };
-          const copyOfHoroscope = horoscope;
-          copyOfHoroscope.push(currentHoroscope);
-          setHoroscope(copyOfHoroscope);
+          horoscopeData.push(currentHoroscope);
+
+          // console.log(horoscope, "horoscope in useEffect");
+          // console.log(horoscopeData, "horoscopeData");
         })
         .catch((error) => {
-          document.getElementsByClassName(
-            "errorMsg"
-          ).innerHTML = `<h2>Sorry! There's an error!</h3>`;
+          console.log(error);
         });
     });
+
+    setHoroscope(horoscopeData);
+    // console.log(horoscope, "horoscope in useEffect");
+    // console.log(horoscopeData, "horoscopeData");
   }, [horoscope]);
 
   return (
     <div>
+      {console.log(horoscope.length)}
       <Header />
       <main>
         <div className="errorMsg"></div>
-        {horoscope.map((eachHoroscope, index) => {
-          return (
-            <EachSign
-              key={index}
-              signName={eachHoroscope.sign}
-              date={eachHoroscope.data.date_range}
-              dailyHoroscope={eachHoroscope.data.description}
-            />
-          );
-        })}
+        {/* {console.log(horoscope.length)} */}
+        {horoscope.length > 0
+          ? horoscope.map((eachHoroscope, index) => {
+              return (
+                <EachSign
+                  key={index}
+                  signName={eachHoroscope.sign}
+                  date={eachHoroscope.data.date_range}
+                  dailyHoroscope={eachHoroscope.data.description}
+                />
+              );
+            })
+          : null}
       </main>
       <Footer />
     </div>
@@ -73,5 +81,3 @@ function App() {
 }
 
 export default App;
-
-// css pattern by Lea Verou - link: 
