@@ -1,27 +1,32 @@
 import { useEffect, useState } from "react";
-import EachSign from "./components/EachSign.js";
 import axios from "axios";
+
+import EachSign from "./components/EachSign.js";
+import Header from "./components/Header.js"
+import Footer from "./components/Footer.js";
+
 import "./App.css";
 
 function App() {
   const url = "https://aztro.sameerkumar.website";
   const [horoscope, setHoroscope] = useState([]);
 
-  useEffect(() => {
 
+  useEffect(() => {
     const sign = [
-    "aries",
-    "taurus",
-    "gemini",
-    "cancer",
-    "leo",
-    "virgo",
-    "libra",
-    "scorpio",
-    "sagittarius",
-    "capricorn",
-    "aquarius",
-    "pisces"]
+      "aries",
+      "taurus",
+      "gemini",
+      "cancer",
+      "leo",
+      "virgo",
+      "libra",
+      "scorpio",
+      "sagittarius",
+      "capricorn",
+      "aquarius",
+      "pisces",
+    ];
 
     sign.forEach((eachSign) => {
       axios({
@@ -33,43 +38,40 @@ function App() {
         },
       })
         .then((response) => {
-          const currentHoroscope = {sign: eachSign, data: response.data}
+          const currentHoroscope = { sign: eachSign, data: response.data };
           const copyOfHoroscope = horoscope;
           copyOfHoroscope.push(currentHoroscope);
           setHoroscope(copyOfHoroscope);
         })
         .catch((error) => {
-          document.getElementsByClassName("errorMsg").innerHTML = `<h2>Sorry! There's an error!</h3>`
+          document.getElementsByClassName(
+            "errorMsg"
+          ).innerHTML = `<h2>Sorry! There's an error!</h3>`;
         });
     });
   }, [horoscope]);
 
   return (
-    <div className="wrapper">
-      <header>
-        <h1>🌙 DAILY HOROSCOPE 💫</h1>
-        <div className="errorMsg"></div>
-      </header>
+    <div>
+      <Header />
       <main>
-      {
-        horoscope.map((eachHoroscope, index) => {
+        <div className="errorMsg"></div>
+        {horoscope.map((eachHoroscope, index) => {
           return (
             <EachSign
               key={index}
               signName={eachHoroscope.sign}
+              date={eachHoroscope.data.date_range}
               dailyHoroscope={eachHoroscope.data.description}
-             />
+            />
           );
-        })
-      }
+        })}
       </main>
-      <footer>
-
-      </footer>
+      <Footer />
     </div>
   );
 }
 
 export default App;
 
-// css pattern by Lea Verou - link: https://projects.verou.me/css3patterns/#
+// css pattern by Lea Verou - link: 

@@ -9,6 +9,7 @@ function EachSign(props) {
   return (
     <div className="horoscopeContainer">
       <h2>{props.signName}</h2>
+      <h3>{props.date}</h3>
       <button onClick={deferrer}>
         {showHoroscope ? "< Back" : "Your horoscope for the day!"}
       </button>
