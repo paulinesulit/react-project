@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import EachSign from "./components/EachSign.js";
-import Header from "./components/Header.js"
+import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 
 import "./App.css";
@@ -27,10 +27,8 @@ function App() {
       "pisces",
     ];
 
-    const horoscopeData = [];
-
-    sign.forEach((eachSign) => {
-      axios({
+    const promisesArray = sign.map((eachSign) => {
+      return axios({
         url: `${url}`,
         method: "POST",
         params: {
@@ -39,25 +37,37 @@ function App() {
         },
       })
         .then((response) => {
-          const currentHoroscope = { sign: eachSign, data: response.data };
-          horoscopeData.push(currentHoroscope);
-
+          // const currentHoroscope = { sign: eachSign, data: response.data };
+          // horoscopeData.push(currentHoroscope);
+          return response;
           // console.log(horoscope, "horoscope in useEffect");
           // console.log(horoscopeData, "horoscopeData");
         })
         .catch((error) => {
           console.log(error);
         });
+      // );
+      // return reviewPromises;
+      // console.log(reviewPromises);
+      // return horoscopeData;
     });
-
-    setHoroscope(horoscopeData);
+    // console.log(horoscopeData);
+    // console.log(promisesArray);
+    // setHoroscope(horoscopeData);
     // console.log(horoscope, "horoscope in useEffect");
     // console.log(horoscopeData, "horoscopeData");
-  }, [horoscope]);
+    // Promise.all(reviewPromises).then((values) => {
+    //   console.log(values);
+    // });
+    Promise.all(promisesArray).then((allHoroscopes) => {
+      // console.log(allHoroscopes);
+      setHoroscope(allHoroscopes);
+    });
+  }, []);
 
   return (
     <div>
-      {console.log(horoscope.length)}
+      {/* {console.log(horoscope.length)} */}
       <Header />
       <main>
         <div className="errorMsg"></div>
@@ -67,7 +77,7 @@ function App() {
               return (
                 <EachSign
                   key={index}
-                  signName={eachHoroscope.sign}
+                  signName={eachHoroscope.config.params.sign}
                   date={eachHoroscope.data.date_range}
                   dailyHoroscope={eachHoroscope.data.description}
                 />
