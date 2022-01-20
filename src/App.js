@@ -52,7 +52,7 @@ function App() {
   return (
     <div>
       <Header />
-      <main>
+      <main className="wrapper">
         <div className="errorMsg"></div>
         {horoscope.length > 0
           ? horoscope.map((eachHoroscope, index) => {

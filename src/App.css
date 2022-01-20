@@ -20,6 +20,11 @@ html {
   color: white;
 }
 
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* typography */
 h1, h2, p {
   text-align: center;
@@ -58,7 +63,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover, a:focus {
   background-color: rgb(255,255,255);
   color: rgb(75,0,130,.7);
 }
@@ -75,9 +80,10 @@ button {
   font-size: 0.9rem;
   background: linear-gradient(rgb(75,0,130), rgb(112, 41, 99));
   color: white;
+
 }
 
-button:hover {
+button:hover, button:focus {
   background: rgb(75,0,130);
 }
 
@@ -85,6 +91,11 @@ button:hover {
 img {
   width: 50%;
   margin: 0 auto;
+  transition: 0.5s cubic-bezier(0.22, 0.82, 0.83, 1);
+}
+
+img:hover {
+  width: 60%;
 }
 
 .imgContainer {
@@ -155,6 +166,17 @@ footer p, footer a {
 @media (max-width: 670px) {
   .horoscopeContainer {
     width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 580px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 470px) {
+  h1 {
+    font-size: 2rem;
   }
 }
 

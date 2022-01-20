@@ -12,9 +12,9 @@ function EachSign(props) {
     <div className="horoscopeContainer">
       {showHoroscope
         ? null
-        : Photos.map((eachPhoto) => {
+        : Photos.map((eachPhoto, index) => {
             return (
-              <div className="imgContainer">
+              <div className="imgContainer" key={index}>
                 {eachPhoto.name === props.signName ? (
                   <img src={eachPhoto.icon} alt={props.signName} />
                 ) : null}
