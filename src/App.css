@@ -74,17 +74,19 @@ button {
   justify-content: center;
   margin: 10px;
   border: none;
-  /* background-color: rgb(255,255,255, .8); */
   padding: 10px;
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 0.9rem;
   background: linear-gradient(rgb(75,0,130), rgb(112, 41, 99));
   color: white;
-
 }
 
 button:hover, button:focus {
   background: rgb(75,0,130);
+}
+
+header p {
+  padding-bottom: 15px;
 }
 
 /* images */
@@ -104,11 +106,7 @@ img:hover {
   padding-bottom: 0.8px;
 }
 
-/* containers */
-
-header p {
-  padding-bottom: 15px;
-}
+/* main section */
 
 main {
   display: flex;
