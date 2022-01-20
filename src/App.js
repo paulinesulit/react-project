@@ -6,6 +6,7 @@ import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 
 import "./App.css";
+import "animate.css";
 
 function App() {
   const url = "https://aztro.sameerkumar.website";
@@ -56,7 +57,7 @@ function App() {
       <Header />
       <main className="wrapper">
         {loading ? (
-          <div class="loader">Loading...</div>
+          <div className="loader"></div>
         ) : (
           horoscope.map((eachHoroscope, index) => {
             return (

@@ -14,7 +14,10 @@ function EachSign(props) {
         ? null
         : Photos.map((eachPhoto, index) => {
             return (
-              <div className="imgContainer" key={index}>
+              <div
+                className="imgContainer animate__animated animate__zoomIn"
+                key={index}
+              >
                 {eachPhoto.name === props.signName ? (
                   <img src={eachPhoto.icon} alt={props.signName} />
                 ) : null}
@@ -22,12 +25,19 @@ function EachSign(props) {
             );
           })}
 
-      <h2>{props.signName}</h2>
-      <h3>{props.date}</h3>
-      <button onClick={deferrer}>
+      <h2 className="animate__animated animate__fadeIn">{props.signName}</h2>
+      <h3 className="animate__animated animate__fadeIn">{props.date}</h3>
+      <button onClick={deferrer} className="animate__animated animate__fadeIn">
         {showHoroscope ? "< Back" : "Your horoscope for the day!"}
       </button>
-      {showHoroscope ? <p>{props.dailyHoroscope}</p> : null}
+
+      {showHoroscope ? (
+        <div>
+          <p className="animate__animated animate__fadeIn">
+            {props.dailyHoroscope}
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }
