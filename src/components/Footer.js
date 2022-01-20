@@ -8,6 +8,8 @@ const Footer = () => {
       <p>
         CSS Starry Background by
         <a href="https://projects.verou.me/css3patterns/#"> Lea Verou</a> |
+        Loading Icon by
+        <a href="https://projects.lukehaas.me/css-loaders/">@lukehaas</a> |
         Horoscopes from
         <a href="https://aztro.sameerkumar.website/"> Aztro API</a>
       </p>

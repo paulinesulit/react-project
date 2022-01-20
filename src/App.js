@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const url = "https://aztro.sameerkumar.website";
   const [horoscope, setHoroscope] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const sign = [
@@ -46,6 +47,7 @@ function App() {
 
     Promise.all(promisesArray).then((allHoroscopes) => {
       setHoroscope(allHoroscopes);
+      setLoading(false);
     });
   }, []);
 
@@ -53,19 +55,20 @@ function App() {
     <div>
       <Header />
       <main className="wrapper">
-        <div className="errorMsg"></div>
-        {horoscope.length > 0
-          ? horoscope.map((eachHoroscope, index) => {
-              return (
-                <EachSign
-                  key={index}
-                  signName={eachHoroscope.config.params.sign}
-                  date={eachHoroscope.data.date_range}
-                  dailyHoroscope={eachHoroscope.data.description}
-                />
-              );
-            })
-          : null}
+        {loading ? (
+          <div class="loader">Loading...</div>
+        ) : (
+          horoscope.map((eachHoroscope, index) => {
+            return (
+              <EachSign
+                key={index}
+                signName={eachHoroscope.config.params.sign}
+                date={eachHoroscope.data.date_range}
+                dailyHoroscope={eachHoroscope.data.description}
+              />
+            );
+          })
+        )}
       </main>
       <Footer />
     </div>
