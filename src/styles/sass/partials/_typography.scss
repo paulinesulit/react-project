@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;1,300;1,500&family=Playfair+Display:wght@400;800&display=swap');
+
+h1, h2, p {
+  text-align: center;
+}
+
+h1 {
+  // padding: 50px 20px 5px 20px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  letter-spacing: 10px;
+  font-size: 3rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+h4 {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-style: italic;
+  padding: 15px 0;
+}
+
+p {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  font-family: 'Alegreya Sans', sans-serif;
+  text-decoration: none;
+  color: $blue;
+}
+
+a:hover, a:focus {
+  // color: rgb(75,0,130,.7);
+  color: $lightblue;
+}
+
+button {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  border: none;
+  padding: 10px;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 0.9rem;
+  background: linear-gradient(rgb(75,0,130), rgb(112, 41, 99));
+  color: white;
+}
+
+button:hover, button:focus {
+  background: rgb(75,0,130);
+}
+
+header p {
+  padding-bottom: 15px;
+}
