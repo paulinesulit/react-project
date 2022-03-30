@@ -54,6 +54,7 @@ img {
   .imgAndText {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 40px 10px 0 10px;
     img {
       width: 100%;
@@ -61,7 +62,6 @@ img {
     }
     
     .horoscopeInfo {
-      width: calc(100% / 2 - 20px);
       margin: 20px;
       h2, p {
         padding: 5px;
@@ -74,6 +74,10 @@ img {
     }
     
   }
+}
+
+.textContainer {
+  width: calc(100% / 2 - 20px);
 }
 
 main {

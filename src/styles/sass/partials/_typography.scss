@@ -47,8 +47,13 @@ a {
 }
 
 a:hover, a:focus {
-  // color: rgb(75,0,130,.7);
   color: $lightblue;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 button {
@@ -56,16 +61,19 @@ button {
   display: flex;
   justify-content: center;
   margin: 10px;
-  border: none;
   padding: 10px;
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 0.9rem;
-  background: linear-gradient(rgb(75,0,130), rgb(112, 41, 99));
   color: white;
+  padding: 10px 20px;
+  border: 3px solid rgb(206, 150, 71, 0.5);
+  box-shadow: 2px 2px rgb(206, 150, 71, 0.4);
+  background-color:black;
+  border-radius: 15px;
 }
 
 button:hover, button:focus {
-  background: rgb(75,0,130);
+  background: rgb(206, 150, 71, 0.7);
 }
 
 header p {
